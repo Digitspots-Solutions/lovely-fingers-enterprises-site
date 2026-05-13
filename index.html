@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovely Fingers Enterprises - Quality Manufacturing Solutions for Nigeria's Growing Industries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #260f00;
+            --color-accent: #ff6a0a;
+            --color-bg: #FAF0E8;
+            --color-text: #180A00;
+            --color-surface: #270d01;
+            --color-secondary-accent: #769dad;
+            --font-display: 'Exo 2', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+            --border-radius: 0px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250, 240, 232, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 4px 4px 0 rgba(38, 15, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-text);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: var(--color-bg);
+            box-shadow: -4px 4px 0 rgba(38, 15, 0, 0.15);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu ul a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            padding: 0 2rem;
+            color: #ffffff;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--color-accent);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--color-accent);
+        }
+
+        .cta-button:hover {
+            background: #ff7a1a;
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--color-primary);
+            text-align: center;
+        }
+
+        /* About Section */
+        #about {
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.1s;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            box-shadow: 8px 8px 0 var(--color-surface);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        #services {
+            background: var(--color-surface);
+            color: var(--color-bg);
+            padding: 80px 2rem;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        #services h2 {
+            color: var(--color-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: var(--color-bg);
+            padding: 2rem;
+            color: var(--color-text);
+            box-shadow: 6px 6px 0 rgba(255, 106, 10, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0 rgba(255, 106, 10, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .service-card p {
+            line-height: 1.7;
+        }
+
+        .services-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-top: 2rem;
+            box-shadow: 8px 8px 0 rgba(255, 106, 10, 0.3);
+        }
+
+        .services-intro {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .contact-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-image {
+            width: 100%;
+            max-width: 900px;
+            height: 400px;
+            object-fit: cover;
+            margin: 3rem auto;
+            display: block;
+            box-shadow: 8px 8px 0 var(--color-surface);
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: var(--color-surface);
+            color: var(--color-bg);
+            box-shadow: 6px 6px 0 rgba(38, 15, 0, 0.2);
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+
+        .contact-item a {
+            color: var(--color-bg);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-accent);
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #25D366;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #20BD5A;
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background: #20BD5A;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-surface);
+            color: var(--color-bg);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.3rem;
+            }
+
+            section h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            section {
+                padding: 48px 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                height: 350px;
+            }
+
+            .contact-details {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .services-image {
+                height: 300px;
+            }
+
+            .contact-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#hero" class="logo">Lovely Fingers Enterprises</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <section id="hero">
+        <img src="https://images.pexels.com/photos/30990853/pexels-photo-30990853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Modern Nigerian manufacturing facility" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Lovely Fingers Enterprises</h1>
+            <p class="hero-tagline">Quality Manufacturing Solutions for Nigeria's Growing Industries</p>
+            <p>Welcome to Lovely Fingers Enterprises - Your Trusted Manufacturing Partner in Onitsha. We deliver precision, quality, and reliability in every product we manufacture. From concept to completion, we bring your manufacturing needs to life with expertise honed over years of serving Nigerian businesses.</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about-container">
+            <img src="https://images.pexels.com/photos/12555018/pexels-photo-12555018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Professional Nigerian manufacturing team" class="about-image">
+            <div class="about-text">
+                <p>Lovely Fingers Enterprises is a leading manufacturing company based in Nkpor, Onitsha North. We specialize in delivering high-quality manufactured products that meet the exacting standards of Nigerian businesses and industries. Our state-of-the-art facility at 6 Alliance Avenue, Old Road Nkpor, is equipped with modern machinery and operated by skilled professionals committed to excellence.</p>
+                <p>We understand the unique challenges of manufacturing in Nigeria and have built our reputation on consistent quality, timely delivery, and competitive pricing. Whether you're a small business or a large enterprise, Lovely Fingers Enterprises is your reliable partner for all manufacturing needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Our Manufacturing Services</h2>
+        <div class="services-intro">
+            <p>At Lovely Fingers Enterprises, we offer comprehensive manufacturing solutions tailored to meet diverse industry needs. Our commitment to quality and efficiency ensures that every project we undertake meets the highest standards while remaining cost-effective for our clients.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Custom Manufacturing</h3>
+                <p>Bespoke production runs designed to your exact specifications</p>
+            </div>
+            <div class="service-card">
+                <h3>Quality Control</h3>
+                <p>Rigorous testing and inspection at every stage of production</p>
+            </div>
+            <div class="service-card">
+                <h3>Product Development</h3>
+                <p>From prototype to mass production with expert guidance</p>
+            </div>
+            <div class="service-card">
+                <h3>Supply Chain Management</h3>
+                <p>Efficient sourcing and timely delivery across Nigeria</p>
+            </div>
+            <div class="service-card">
+                <h3>Technical Consultation</h3>
+                <p>Expert advice on materials, processes, and cost optimization</p>
+            </div>
+        </div>
+        <img src="https://images.pexels.com/photos/36522029/pexels-photo-36522029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Manufacturing processes and quality control" class="services-image">
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <p>Ready to discuss your manufacturing needs? Lovely Fingers Enterprises is here to help. Whether you need a quote, technical consultation, or want to schedule a facility visit, our team is ready to assist you.</p>
+            <p>Visit our facility at 6 Alliance Avenue, Old Road Nkpor, Onitsha North, or reach out to us via phone or WhatsApp. We look forward to partnering with you on your next manufacturing project.</p>
+        </div>
+        <img src="https://images.pexels.com/photos/36894415/pexels-photo-36894415.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Welcoming business office" class="contact-image">
+        <div class="contact-details">
+            <div class="contact-item">
+                <h3>Phone</h3>
+                <a href="tel:+2348037896049">+234 803 789 6049</a>
+            </div>
+            <div class="contact-item">
+                <h3>Email</h3>
+                <a href="mailto:info@lovelyfingersenterprises.com">info@lovelyfingersenterprises.com</a>
+            </div>
+            <div class="contact-item">
+                <h3>Address</h3>
+                <p>6 Alliance Avenue, Old Road Nkpor, Onitsha North, Anambra State, Nigeria</p>
+            </div>
+        </div>
+        <a href="https://wa.me/2348037896049" class="whatsapp-btn">Message us on WhatsApp</a>
+    </section>
+
+    <a href="https://wa.me/2348037896049" class="whatsapp-float" target="_blank">💬</a>
+
+    <footer>
+        <p>&copy; 2024 Lovely Fingers Enterprises. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
