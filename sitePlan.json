@@ -1,0 +1,42 @@
+{
+  "businessName": "Lovely Fingers Enterprises",
+  "industry": "Manufacturing",
+  "tone": "professional and confident",
+  "tagline": "Quality Manufacturing Solutions for Nigeria's Growing Industries",
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero",
+      "copy": "Welcome to Lovely Fingers Enterprises - Your Trusted Manufacturing Partner in Onitsha. We deliver precision, quality, and reliability in every product we manufacture. From concept to completion, we bring your manufacturing needs to life with expertise honed over years of serving Nigerian businesses.",
+      "imagePrompt": "Modern Nigerian manufacturing facility with organized production floor, workers in safety gear operating machinery, bright natural lighting through industrial windows, clean and organized workspace, professional manufacturing environment in Onitsha, photorealistic industrial photography",
+      "layout": "centered"
+    },
+    {
+      "id": "about",
+      "name": "About Us",
+      "copy": "Lovely Fingers Enterprises is a leading manufacturing company based in Nkpor, Onitsha North. We specialize in delivering high-quality manufactured products that meet the exacting standards of Nigerian businesses and industries. Our state-of-the-art facility at 6 Alliance Avenue, Old Road Nkpor, is equipped with modern machinery and operated by skilled professionals committed to excellence. We understand the unique challenges of manufacturing in Nigeria and have built our reputation on consistent quality, timely delivery, and competitive pricing. Whether you're a small business or a large enterprise, Lovely Fingers Enterprises is your reliable partner for all manufacturing needs.",
+      "imagePrompt": "Professional Nigerian manufacturing team standing confidently in front of modern factory building, mix of experienced workers and management, industrial setting with company signage, warm afternoon lighting, Onitsha business district atmosphere, corporate documentary style photography",
+      "layout": "split"
+    },
+    {
+      "id": "services",
+      "name": "Our Manufacturing Services",
+      "copy": "At Lovely Fingers Enterprises, we offer comprehensive manufacturing solutions tailored to meet diverse industry needs:\n\n• Custom Manufacturing - Bespoke production runs designed to your exact specifications\n• Quality Control - Rigorous testing and inspection at every stage of production\n• Product Development - From prototype to mass production with expert guidance\n• Supply Chain Management - Efficient sourcing and timely delivery across Nigeria\n• Technical Consultation - Expert advice on materials, processes, and cost optimization\n\nOur commitment to quality and efficiency ensures that every project we undertake meets the highest standards while remaining cost-effective for our clients.",
+      "imagePrompt": "Collage of manufacturing processes showing quality control inspection, custom product assembly, modern machinery in operation, Nigerian workers carefully handling products, bright industrial lighting, professional manufacturing documentation, photorealistic industrial photography with attention to detail",
+      "layout": "grid"
+    },
+    {
+      "id": "contact",
+      "name": "Get In Touch",
+      "copy": "Ready to discuss your manufacturing needs? Lovely Fingers Enterprises is here to help. Whether you need a quote, technical consultation, or want to schedule a facility visit, our team is ready to assist you.\n\nVisit our facility at 6 Alliance Avenue, Old Road Nkpor, Onitsha North, or reach out to us via phone or WhatsApp. We look forward to partnering with you on your next manufacturing project.",
+      "imagePrompt": "Welcoming Nigerian business office reception area with comfortable seating, professional staff member ready to assist, visible contact information display, modern office interior with industrial touches, natural lighting, professional business photography, Onitsha commercial atmosphere",
+      "layout": "centered"
+    }
+  ],
+  "contact": {
+    "phone": "+234 803 789 6049",
+    "email": "info@lovelyfingersenterprises.com",
+    "address": "6 Alliance Avenue, Old Road Nkpor, Onitsha North, Anambra State, Nigeria",
+    "whatsapp": "https://wa.me/2348037896049"
+  }
+}
